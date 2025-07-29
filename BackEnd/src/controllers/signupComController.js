@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import Company from "../models/Company.js";
 import bcrypt from "bcrypt";
 
@@ -21,7 +22,10 @@ export const signupCompany = async (req, res) => {
     });
 
     await newCompany.save();
-    res.status(201).json({ message: "Successfully created a company account. Welcome aboard!" });
+    res.status(201).json({ 
+      message: "Successfully created a company account. Welcome aboard!",
+      redirectUrl: "http://localhost:5173/PostSignupEmp"
+     });
   } catch (error) {
     if (error.code === 11000) {
       // Handle duplicate key error

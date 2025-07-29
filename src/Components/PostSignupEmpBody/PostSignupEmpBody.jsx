@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './postSignupEmpBody.css';
 
 const PostSignupEmpBody = () => {
 
+    const navigate = useNavigate();
+
     // Backend Integration
-    const [formData, setFormData] = React.useState({
+    const [formData, setFormData] = useState({
         fullname: '',
         email: '',
         phoneNumber: '',
         collegeOrUniversity: '',
         address: '',
         district: '',
-        gender: '',
+        gender: 'Male',
         birthdate: '',
         profileImage: null,
     });
@@ -43,21 +47,25 @@ const PostSignupEmpBody = () => {
             data.append('profileImage', formData.profileImage);
         }
 
+        console.log('Form Data Submitted:');
+        for (let [key, value] of data.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+
+
+
         try {
-            const response = await fetch('http://localhost:5000/api/post-signup-emp-body', {
-                method: 'POST',
-                body: data,
-            });
-            const result = await response.json();
-            if (response.ok) {
-                alert('Profile created successfully');
+            const response = await axios.post('http://localhost:5000/api/post-signup-emp', data);
+            if (response.status === 200) {
+                alert(response.data.message);
+                navigate('/PostSignupEmp2');
             } else {
-                alert('Error creating profile');
-                console.error('Error:', result.message);
+                alert('Failed to save employee details');
             }
         } catch (error) {
-            console.error('Error submitting profile data:', error);
-            alert('Failed to create profile');
+            console.error('Error submitting employee details:', error);
+            alert('Failed to save employee details');
+
         }
     };
     // Backend Integration
@@ -67,7 +75,7 @@ const PostSignupEmpBody = () => {
             <h1>Personal Information</h1>
             <form className='fullForm' onSubmit={handleSubmit}>
                 <div className='uploadSection'>
-                    <label htmlFor='profileImage'>Upload Profile Image</label>
+
                     <input
                         name='profileImage'
                         type='file'
@@ -123,6 +131,7 @@ const PostSignupEmpBody = () => {
                     <select
                         name='gender'
                         className='selectGen'
+                        value={formData.gender}
                         onChange={handleChange}
                         required
                     >

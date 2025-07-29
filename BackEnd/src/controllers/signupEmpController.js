@@ -24,8 +24,6 @@ export const signupEmployee = async (req, res) => {
 
         await newEmployee.save();
         res.status(201).json({message:"Successfully created a fresh employee account. All the best :)"});
-        // Facing bugs
-        // res.redirect("http://localhost:5173/PostSignupEmp");
 
     } catch (error) {
         console.error("Error creating employee:", error);
