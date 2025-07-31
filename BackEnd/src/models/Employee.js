@@ -7,10 +7,10 @@ const employeeSchema = new mongoose.Schema({
     },
     username: {
         type: String,
-        required: true, // Required during signup
+        required: true, 
     },
     fullname: {
-        type: String, // Optional for additional details
+        type: String, 
     },
     email: {
         type: String,
@@ -19,7 +19,7 @@ const employeeSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-         // Required during signup
+        required: false, // Turned off for Google sign-up
     },
     phoneNumber: {
         type: String,
