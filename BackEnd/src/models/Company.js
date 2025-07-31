@@ -19,7 +19,7 @@ const companySchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: false, // Made optional for OAuth
+    required: false, // Turned off for Google and LinkedIn auth
   },
   createdAt: {
     type: Date,
