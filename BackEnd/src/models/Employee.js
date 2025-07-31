@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const employeeSchema = new mongoose.Schema({
+       googleId: {
+        type: String,
+  
+    },
     username: {
         type: String,
         required: true, // Required during signup
@@ -15,7 +19,7 @@ const employeeSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true, // Required during signup
+         // Required during signup
     },
     phoneNumber: {
         type: String,
@@ -38,7 +42,7 @@ const employeeSchema = new mongoose.Schema({
         type: Date,
     },
     profileImage: {
-        type: String, // URL or path to the uploaded image
+        type: String, 
     },
     createdAt: {
         type: Date,

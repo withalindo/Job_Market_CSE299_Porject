@@ -11,13 +11,24 @@ router.get("/google/company", passport.authenticate("google-company", { scope: [
 router.get("/linkedin", passport.authenticate("linkedin-employee", { scope: ["r_emailaddress", "r_liteprofile"] }));
 router.get("/linkedin/company", passport.authenticate("linkedin-company", { scope: ["r_emailaddress", "r_liteprofile"] }));
 
-// Google Callback Route
+// Google Callback Routes
+// Employee Google Callback
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "/login" }),
+  passport.authenticate("google-employee", { failureRedirect: "/login" }),
   (req, res) => {
-    // Successful authentication
-    res.redirect("http://localhost:5173/login"); // Redirect to the login page
+    // Successful authentication for employee
+    res.redirect("http://localhost:5173/PostSignupEmp"); // Redirect to the employee dash board/login
+  }
+);
+
+// Company Google Callback
+router.get(
+  "/google/company/callback",
+  passport.authenticate("google-company", { failureRedirect: "/login" }),
+  (req, res) => {
+    // Successful authentication for company
+    res.redirect("http://localhost:5173/PostSignupCom"); // Redirect to the company dashboard/login
   }
 );
 
@@ -37,4 +48,3 @@ router.get("/logout", (req, res) => {
 });
 
 export default router;
-
