@@ -15,6 +15,7 @@ import signupRoutes from "./src/routes/signupRoutes.js";
 import loginRoutes from "./src/routes/loginRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import postSignupEmpRoutes from "./src/routes/postSignupEmpRoutes.js"; // Import the new route
+import postSignupEmp2Routes from "./src/routes/postSignupEmp2Routes.js"; // Import the new route for resume upload
 
 // Import Google authentication strategies
 import "./src/controllers/employeeGoogleAuth.js";
@@ -78,6 +79,7 @@ app.use("/api/signup", signupRoutes);
 app.use("/api", loginRoutes);
 app.use("/auth", authRoutes);
 app.use("/api/post-signup-emp", postSignupEmpRoutes); // Add the new route for employee details
+app.use("/api/post-signup-emp2", postSignupEmp2Routes); 
 
 // Error handling middleware
 app.use((err, req, res, next) => {

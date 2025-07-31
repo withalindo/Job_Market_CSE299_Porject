@@ -44,6 +44,22 @@ const employeeSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    skills: {
+        type: String,
+        default: "",
+    },
+    summary: {
+        type: String,
+        default: "",
+    },
+    experiences: {
+        type: String,
+        default: "",
+    },
+    resume: {
+        type: String,
+        default: "",
+    }
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
