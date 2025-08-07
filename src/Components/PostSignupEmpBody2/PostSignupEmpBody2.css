@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.postSignupEmpBody2{
+    height: 85vh;
+    width: 60%;
+    border: 1px solid white;
+    border-radius: 15px;
+    font-family: "kumbh sans";
+    padding: 3lvh;
+}
+.postSignupEmpBody2 h1{
+    font-weight: 300;
+    letter-spacing: 4px;
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+.postSignupEmpBody2 .skillForm .upload button{
+    height: 5vh;
+    width: 20%;
+    font-family: "kumbh sans";
+    letter-spacing: 2px;
+    border-radius: 15px;
+}
+.postSignupEmpBody2 .skillForm .upload{
+    margin-bottom: 2vh;
+}
+.postSignupEmpBody2 .skillForm .texts h1{
+    font-weight: 200;
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 3vh;
+}
+.postSignupEmpBody2 .skillForm .experiences input{
+    height: 26vh;
+    width: 70%;
+    font-size: 25px;
+}
+.postSignupEmpBody2 .skillForm .experiences textarea{
+    border: 1px solid white;
+    border-radius: 15px;
+    background: transparent;
+    padding: 15px;
+    color: white;
+    font-family: "kumbh sans";
+    font-size: 15px;
+    letter-spacing: 3px;
+}
+
+.postSignupEmpBody2 .skillForm .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+.postSignupEmpBody2 .skillForm .buttons button{
+    height: 5vh;
+    width: 20%;
+    font-family: "kumbh sans";
+    letter-spacing: 2px;
+    border-radius: 15px;
+    font-size: 20px;
+    margin-left: 3vh;
+    margin-right: 3vh;
+}
+

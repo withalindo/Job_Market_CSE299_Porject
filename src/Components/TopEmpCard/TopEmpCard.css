@@ -1,0 +1,44 @@
+*{
+    margin:0;
+}
+
+.topEmpCard{
+    height: 40vh;
+    width: 20%;
+    font-family: "kumbh sans";
+    border-radius:15px;
+}
+.topEmpCard .imagePart{
+    height: 55%;
+    width: 50%;
+    background-color: lightgreen;
+    border-radius: 65%;
+}
+.topEmpCard .infoPart{
+    height: 45%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align:left;
+    border-radius: 10px;
+    padding: 5px;
+}
+.topEmpCard .infoPart h1{
+    font-weight: 300;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.topEmpCard .infoPart p{
+    font-weight: 200;
+}
+.topEmpCard .infoPart button{
+    margin-top: 15px;
+    height: 40px;
+    width: 50%;
+    border-radius: 30px;
+    background-color:white;
+    color:black;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
