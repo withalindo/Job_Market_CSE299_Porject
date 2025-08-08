@@ -33,6 +33,22 @@
     text-align: left;
     margin-bottom: 3vh;
 }
+
+
+/* Added this alindo */
+.postSignupEmpBody2 .skillForm .texts input{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    font-size: 2vh;
+    font-family: "kumbh sans";
+    color: white;
+    width: 25vh;
+
+}
+/* Added this alindo */
+
 .postSignupEmpBody2 .skillForm .experiences input{
     height: 26vh;
     width: 70%;
@@ -65,4 +81,39 @@
     margin-left: 3vh;
     margin-right: 3vh;
 }
+
+.postSignupEmpBody2 .skillForm .upload{
+    display: flex;
+    gap: 3vh;
+}
+.postSignupEmpBody2 .skillForm .upload input{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    font-size: 2vh;
+    font-family: "kumbh sans";
+    color: white;
+    width: 30vh;
+    padding-top: 3vh;
+
+}
+
+.postSignupEmpBody2 .skillForm .email{
+    display: flex;
+    gap: 3vh;
+}
+.postSignupEmpBody2 .skillForm .email input{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid white;
+    font-size: 2vh;
+    font-family: "kumbh sans";
+    color: white;
+    width: 25vh;
+
+}
+
+
 
