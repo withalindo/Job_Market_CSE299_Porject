@@ -37,7 +37,7 @@ const PostSignupEmpBody2 = () => {
       alert(res.data.message);
       setSkill(res.data.skills || "");
       setSummary(res.data.summary || "");
-      // Redirect to login page after success
+      // Redirect to userHomepage page after success
       setTimeout(() => {
         window.location.href = "/HomeUser";
       }, 5000);
