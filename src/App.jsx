@@ -7,6 +7,8 @@ import Login from './Pages/Login/Login.jsx'
 import PostSignupEmp from './Pages/PostSignupEmp/PostSignupEmp.jsx'
 import PostSignupEmp2 from './Pages/PostSignupEmp2/PostSignupEmp2.jsx'
 import PostSignupCom from './Pages/PostSignupCom/PostSignupCom.jsx'
+import HomeUser from './Pages/HomeUser/HomeUser.jsx'
+import Jobs from './Pages/Jobs/Jobs.jsx'
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/PostSignupEmp' element={<PostSignupEmp />}></Route>
         <Route path='/PostSignupEmp2' element={<PostSignupEmp2 />}></Route>
         <Route path='/PostSignupCom' element={<PostSignupCom />}></Route>
+        <Route path='/HomeUser' element={<HomeUser />}></Route>
+        <Route path='/Jobs' element={<Jobs />}></Route>
       </Routes>
     </BrowserRouter>
   )

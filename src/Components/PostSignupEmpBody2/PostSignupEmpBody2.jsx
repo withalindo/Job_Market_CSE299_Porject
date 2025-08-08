@@ -39,7 +39,7 @@ const PostSignupEmpBody2 = () => {
       setSummary(res.data.summary || "");
       // Redirect to login page after success
       setTimeout(() => {
-        window.location.href = "/login";
+        window.location.href = "/HomeUser";
       }, 5000);
     } catch (err) {
       console.error(err.response || err);

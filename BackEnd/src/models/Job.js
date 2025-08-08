@@ -7,15 +7,19 @@ const jobSchema = new mongoose.Schema({
     },
     company: {
         type: String,
-        required: true,
+        // required: true,
     },
     description: {
         type: String,
-        required: true,
+        // required: true,
+    },
+    category: {
+        type: String,
+        // required: true,
     },
     location: {
         type: String,
-        required: true,
+        // required: true,
     },
     postedAt: {
         type: Date,
