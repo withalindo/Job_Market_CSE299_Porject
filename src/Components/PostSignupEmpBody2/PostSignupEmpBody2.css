@@ -99,11 +99,11 @@
 
 }
 
-.postSignupEmpBody2 .skillForm .email{
+.postSignupEmpBody2 .skillForm .username{
     display: flex;
     gap: 3vh;
 }
-.postSignupEmpBody2 .skillForm .email input{
+.postSignupEmpBody2 .skillForm .username input{
     background: transparent;
     outline: none;
     border: none;

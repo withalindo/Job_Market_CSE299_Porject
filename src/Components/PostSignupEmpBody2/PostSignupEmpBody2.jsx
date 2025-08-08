@@ -3,7 +3,7 @@ import axios from 'axios';
 import "./PostSignupEmpBody2.css"
 
 const PostSignupEmpBody2 = () => {
-  const [email, setEmail] = React.useState("");
+  const [username, setUsername] = React.useState("");
   const [resumeFile, setResumeFile] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [skill, setSkill] = React.useState("");
@@ -16,12 +16,12 @@ const PostSignupEmpBody2 = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email.trim() || !resumeFile) {
-      return alert("Email and resume file are required.");
+    if (!username.trim() || !resumeFile) {
+      return alert("Username and resume file are required.");
     }
 
     const formData = new FormData();
-    formData.append("email", email.trim());
+    formData.append("username", username.trim());
     formData.append("resume", resumeFile);
     formData.append("experiences", experiences);
 
@@ -37,6 +37,10 @@ const PostSignupEmpBody2 = () => {
       alert(res.data.message);
       setSkill(res.data.skills || "");
       setSummary(res.data.summary || "");
+      // Redirect to login page after success
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 5000);
     } catch (err) {
       console.error(err.response || err);
       alert(err.response?.data?.message || "Upload failed");
@@ -49,13 +53,13 @@ const PostSignupEmpBody2 = () => {
     <div className='postSignupEmpBody2'>
       <h1>Skill Information</h1>
       <form className='skillForm' onSubmit={handleSubmit}>
-        <div className="email">
+        <div className="username">
           <input
-            type="email"
-            placeholder='Please enter your email'
+            type="text"
+            placeholder='Username'
             required
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            value={username}
+            onChange={e => setUsername(e.target.value)}
           />
         </div>
         <div className="upload">

@@ -7,7 +7,9 @@ const employeeSchema = new mongoose.Schema({
     },
     username: {
         type: String,
-        required: true, 
+        required: true,
+        // added unique: true
+        unique: true,
     },
     fullname: {
         type: String, 
