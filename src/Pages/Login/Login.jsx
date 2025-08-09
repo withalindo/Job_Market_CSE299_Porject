@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Login.css"
 import axios from 'axios';
-const Login = () => {
 
+const Login = () => {
 
     // Backend Integration
     const handlelogin = (e) => {
@@ -17,9 +17,10 @@ const Login = () => {
             return;
         }
         axios
-            .post("http://localhost:5000/api/login", formData)
+            .post("http://localhost:5000/api/login", formData, { withCredentials: true }) // <-- Added withCredentials
             .then((res) => {
                 alert(res.data.message);
+                window.location.href = "/HomeUser";
                 console.log("Token:", res.data.token);
             })
             .catch((err) => {
@@ -29,17 +30,14 @@ const Login = () => {
 
     }
 
-    // Backend Integration (Working ongoing on it)
-    // Google login Handlers
+    // Google login Handlers (work in progress)
     // const handleGoogleLogin = () => {
     //     if (userType === "employee") {
     //         window.open("http://localhost:5000/auth/google");
-
     //     } else {
     //         window.open("http://localhost:5000/auth/google/company");
     //     }
     // };
-    // Backend Integration (Working ongoing on it)
 
     return (
         <div className='login'>

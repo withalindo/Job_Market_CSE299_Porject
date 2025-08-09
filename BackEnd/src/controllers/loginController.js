@@ -28,6 +28,11 @@ export const login = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(401).json({ message: "Invalid password" });
         }
+        
+        req.session.user = user._id;
+        
+
+
         //re
         const token = jwt.sign({ id: user._id, type: userType }, process.env.JWT_SECRET,
             {

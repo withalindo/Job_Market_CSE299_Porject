@@ -5,13 +5,10 @@ import cors from "cors";
 import passport from "passport";
 import session from "express-session";
 import path from "path"; 
-import { fileURLToPath } from "url"; // Import for __dirname equivalent
+import { fileURLToPath } from "url";
 
 // Load environment variables first
 dotenv.config();
-
-//For debugging purposes
-// console.log("Loaded GEMINI_API_KEY:", process.env.GEMINI_API_KEY);
 
 // Import routes
 import signupRoutes from "./src/routes/signupRoutes.js";
@@ -19,8 +16,9 @@ import loginRoutes from "./src/routes/loginRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import postSignupEmpRoutes from "./src/routes/postSignupEmpRoutes.js"; 
 import postSignupEmp2Routes from "./src/routes/postSignupEmp2Routes.js";
-import postSignupComRoutes from "./src/routes/postSignupComRoutes.js"; // Import the new route for company details
-
+import postSignupComRoutes from "./src/routes/postSignupComRoutes.js";
+import jobRoutes from "./src/routes/jobRoutes.js";
+import homeUserRoutes from "./src/routes/homeUserRoutes.js";
 
 // Import Google authentication strategies
 import "./src/controllers/employeeGoogleAuth.js";
@@ -30,6 +28,9 @@ import "./src/controllers/companyGoogleAuth.js";
 import "./src/controllers/employeeLinkedInAuth.js";
 import "./src/controllers/companyLinkedInAuth.js";
 
+// Import Employee model for employee info route
+import Employee from "./src/models/Employee.js";
+
 // Initialize Express app
 const app = express();
 
@@ -38,14 +39,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/company-images", express.static(path.join("src/CompanyImage")));
-
-
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use('/companyImage', express.static(path.join(__dirname, 'src/CompanyImage')));
 
 // Session configuration
 app.use(
@@ -54,7 +57,8 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+
+      secure: false,
       maxAge: 24 * 60 * 60 * 1000, // 1 day
     },
   })
@@ -63,7 +67,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// MongoDB connection with better error handling
+// MongoDB connection
 mongoose
   .connect(process.env.DB_URI, {
     useNewUrlParser: true,
@@ -72,7 +76,7 @@ mongoose
   .then(() => console.log("MongoDB connected successfully"))
   .catch((err) => {
     console.error("MongoDB connection error:", err);
-    process.exit(1); // Exit process if DB connection fails
+    process.exit(1);
   });
 
 // Root route
@@ -84,9 +88,35 @@ app.get("/", (req, res) => {
 app.use("/api/signup", signupRoutes);
 app.use("/api", loginRoutes);
 app.use("/auth", authRoutes);
-app.use("/api/post-signup-emp", postSignupEmpRoutes); // Add the new route for employee details
+app.use("/api/post-signup-emp", postSignupEmpRoutes);
 app.use("/api", postSignupEmp2Routes);
 app.use("/api", postSignupComRoutes);
+app.use("/api", jobRoutes);
+app.use("/api", homeUserRoutes);
+
+// Added for Cookie testing purposes
+app.get("/api/check-session", (req, res) => {
+  if (req.session.user) {
+    res.json({ loggedIn: true, user: req.session.user });
+  } else {
+    res.json({ loggedIn: false });
+  }
+});
+
+// Added: Employee info route for header
+app.get("/api/employee-info", async (req, res) => {
+  try {
+    if (!req.session.user) return res.status(401).json({});
+    const employee = await Employee.findById(req.session.user);
+    if (!employee) return res.status(404).json({});
+    res.json({
+      fullname: employee.fullname,
+      // add other fields if needed
+    });
+  } catch (err) {
+    res.status(500).json({});
+  }
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
