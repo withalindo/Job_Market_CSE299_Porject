@@ -13,12 +13,14 @@ dotenv.config();
 // Import routes
 import signupRoutes from "./src/routes/signupRoutes.js";
 import loginRoutes from "./src/routes/loginRoutes.js";
+import loginComRoutes from "./src/routes/loginComRoutes.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import postSignupEmpRoutes from "./src/routes/postSignupEmpRoutes.js"; 
 import postSignupEmp2Routes from "./src/routes/postSignupEmp2Routes.js";
 import postSignupComRoutes from "./src/routes/postSignupComRoutes.js";
 import jobRoutes from "./src/routes/jobRoutes.js";
 import homeUserRoutes from "./src/routes/homeUserRoutes.js";
+import JobPostRoutes from "./src/routes/JobPostRoutes.js";
 
 // Import Google authentication strategies
 import "./src/controllers/employeeGoogleAuth.js";
@@ -87,12 +89,14 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/signup", signupRoutes);
 app.use("/api", loginRoutes);
+app.use("/api", loginComRoutes);
 app.use("/auth", authRoutes);
 app.use("/api/post-signup-emp", postSignupEmpRoutes);
 app.use("/api", postSignupEmp2Routes);
 app.use("/api", postSignupComRoutes);
 app.use("/api", jobRoutes);
 app.use("/api", homeUserRoutes);
+app.use("/api", JobPostRoutes);
 
 // Added for Cookie testing purposes
 app.get("/api/check-session", (req, res) => {

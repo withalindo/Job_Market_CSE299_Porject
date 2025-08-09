@@ -21,6 +21,10 @@ const jobSchema = new mongoose.Schema({
         type: String,
         // required: true,
     },
+    Salary: {
+        type: String,
+        // required: true,
+    },
     postedAt: {
         type: Date,
         default: Date.now,

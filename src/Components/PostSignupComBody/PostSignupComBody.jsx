@@ -42,7 +42,7 @@ const PostSignupComBody = () => {
         { headers: { "Content-Type": "multipart/form-data" } }
       );
       alert(res.data.message);
-      window.location.href = "/login";
+        window.location.href = "http://localhost:5173/HomeCom";
     } catch (err) {
       console.error(err.response || err);
       alert(err.response?.data?.message || "Failed to add company information.");
