@@ -155,7 +155,3 @@ These are used for resume parsing and job matching.
 3. Commit your changes
 4. Push to your branch (`git push origin feature-branch`)
 5. Open a pull request
-
-## License
-
-This project is licensed under the MIT License.
