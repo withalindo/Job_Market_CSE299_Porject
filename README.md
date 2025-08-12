@@ -73,7 +73,8 @@ JobMarket/
 - **Backend:** Node.js, Express, Python (Flask for ML)
 - **Database:** MongoDB (via Mongoose models)
 - **Authentication:** Google, LinkedIn, custom
-- **Machine Learning:** scikit-learn, XGBoost, joblib
+- **Machine Learning:** scikit-learn, XGBoost, BERT, SVM, Logistic Regression.
+- **LLM Model:** Google Gemini
 - **Other:** ESLint, REST API
 
 ## Setup Instructions
@@ -139,7 +140,7 @@ See `BackEnd/routes/` for detailed route definitions.
 
 ## Prediction Models
 
-Custom trained models are stored in `predictionModels`:
+Custom-trained models are stored in `predictionModels`:
 - `logistic_regression_model.joblib`
 - `svm_model.joblib`
 - `xgboost_model.joblib`
