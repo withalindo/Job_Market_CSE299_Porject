@@ -139,7 +139,7 @@ See `BackEnd/routes/` for detailed route definitions.
 
 ## Prediction Models
 
-Pre-trained models are stored in `predictionModels`:
+Custom trained models are stored in `predictionModels`:
 - `logistic_regression_model.joblib`
 - `svm_model.joblib`
 - `xgboost_model.joblib`
