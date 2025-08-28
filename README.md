@@ -19,7 +19,6 @@ The platform leverages a React-based frontend for a seamless user experience, a 
 - [API Endpoints](#api-endpoints)
 - [Prediction Models](#prediction-models)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
