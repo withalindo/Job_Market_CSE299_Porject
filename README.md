@@ -41,30 +41,30 @@ This project is a full-stack job market platform that allows users to sign up as
 JobMarket/
 │
 ├── BackEnd/
-│   ├── app.py                  # Python backend for ML predictions
-│   ├── server.js               # Node.js/Express backend server
-│   ├── controllers/            # Route controllers for authentication, jobs, users
-│   ├── models/                 # Mongoose models for Company, Employee, Job
-│   ├── routes/                 # Express route definitions
-│   ├── ResumeUploads/          # Uploaded resumes
-│   ├── uploads/                # Uploaded files (images, etc.)
-│   └── requirements.txt        # Python dependencies
+│   ├── app.py                  
+│   ├── server.js               
+│   ├── controllers/            
+│   ├── models/                 
+│   ├── routes/                 
+│   ├── ResumeUploads/          
+│   ├── uploads/                
+│   └── requirements.txt        
 │
-├── predictionModels/           # Pre-trained ML models and encoders
+├── predictionModels/           
 │
-├── public/                     # Static assets
+├── public/                     
 │
 ├── src/
-│   ├── App.jsx                 # Main React app component
-│   ├── main.jsx                # React entry point
-│   ├── Components/             # Reusable React components
-│   └── Pages/                  # Page-level React components
+│   ├── App.jsx                 
+│   ├── main.jsx                
+│   ├── Components/             
+│   └── Pages/                  
 │
-├── jobs.json                   # Sample job data
-├── package.json                # Project dependencies and scripts
-├── vite.config.js              # Vite configuration
-├── eslint.config.js            # ESLint configuration
-└── README.md                   # Project documentation
+├── jobs.json                   
+├── package.json                
+├── vite.config.js              
+├── eslint.config.js            
+└── README.md                   
 ```
 
 ## Tech Stack
